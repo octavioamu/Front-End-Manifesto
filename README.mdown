@@ -1,12 +1,16 @@
+Front End Manifesto
+===================
 
-Are you saw the Photoshop Etiquette Manifesto for Web Designers?
-http://photoshopetiquette.com/
+Are you saw the [Photoshop Etiquette Manifesto for Web Designers](http://photoshopetiquette.com/)?
+
 I've learned good things in that Manifesto, and the idea here it's kinda the same, but in the context of Front End Development.
 
 That's is what you going to see:
+--------------------------------
+
 Tips, best practices, documentation structure, etc. Of HTML, CSS and JavaScript.
 
-I love Sublime Text 2, and I've tried to recreate the interface of this extraordinary IDE.
+I love [Sublime Text 2](htttp://sublimetext.com), and I've tried to recreate the interface of this extraordinary IDE.
 
 If you want to contribute, if you disagree of some things in this project, say out loud, 
 you're welcome to change.
