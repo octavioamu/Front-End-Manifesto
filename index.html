@@ -1,0 +1,236 @@
+﻿<!doctype html>
+
+<!--[if lt IE 7]><html class='no-js ie6 oldie' lang='pt-BR'><![endif]-->
+<!--[if IE 7]><html class='no-js ie7 oldie' lang='pt-BR'><![endif]-->
+<!--[if IE 8]><html class='no-js ie8 oldie' lang='pt-BR'><![endif]-->
+<!--[if gt IE 8]><!--><html class='no-js' lang='pt-BR'><!--<![endif]-->
+    <head>
+        <title>The Front End Manifesto</title>
+        <meta charset='utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta name='description' content='Descriptions'>
+        <link rel='author' href='humans.txt' />
+        <link rel='shortcut icon' href='public/icons/favicon.png' />
+        <link rel='stylesheet' href='public/css/style.css?v=1' />
+
+        <!--[if lt IE 9]>
+            <script src="dist/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Google Analytics -->
+        <!--<script>
+            window._gaq = [
+                ['_setAccount', 'UAXXXXXXXX1'],
+                ['_trackPageview'],
+                ['_trackPageLoadTime']
+            ];
+            Modernizr.load({
+                load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+            });
+        </script>-->
+
+    </head>
+    <body>
+
+        <div class="container">
+
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href=""><u>F</u>ile</a></li>
+                        <li><a href=""><u>E</u>dit</a></li>
+                        <li><a href=""><u>S</u>election</a></li>
+                        <li><a href="">F<u>i</u>nd</a></li>
+                        <li><a href=""><u>V</u>iew</a></li>
+                        <li><a href=""><u>G</u>oto</a></li>
+                        <li><a href="">Tools</a></li>
+                        <li><a href=""><u>P</u>roject</a></li>
+                        <li><a href="">Prefere<u>n</u>ces</a></li>
+                        <li><a href=""><u>H</u>elp</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <aside>
+                <section class="open-files">
+                    <h2>Open Files</h2>
+                    <ul id="file-open" class="open-files">
+                        <li>
+                            <a href="#index-html" class="active"><span>x</span>index.html</a>
+                        </li>
+                        <li>
+                            <a href="#style-css"><span>x</span>style.css</a>
+                        </li>
+                        <li>
+                            <a href="#script-js"><span>x</span>script.js</a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="folders-list">
+                    <h2>Folders</h2>
+                    <nav>
+                        <ul id="folders" class="folders">
+                            <li>
+                                <a href><span class="triangle"></span>esjus</a>
+                            </li>
+                            <li>
+                                <a class="folder" href=""><span class="triangle"></span>css</a>
+                                <ul class="files">
+                                    <li>
+                                        <a href="">style.css</a>
+                                    </li>
+                                    <li>
+                                        <a href="">script.js</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="folder" href=""><span class="triangle"></span>public</a>
+                                <ul class="files">
+                                    <li>
+                                        <a href="">index.html</a>
+                                    </li>
+                                    <li>
+                                        <a href="">scrpit.js</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+            </aside>
+
+            <div id="code-content">
+                <ul class="tabs">
+                    <li class="current">
+                        <a href="#index-html">index.html<span>x</span></a>
+                    </li>
+                    <li>
+                        <a href="#style-css">style.css<span>x</span></a>
+                    </li>
+                    <li>
+                        <a href="#script-js">script.js<span>x</span></a>
+                    </li>
+                </ul>
+                <article class="tabs-content">
+                        <textarea name="code1" id='code1' class='cm'>
+.border-radius (@radius: 4px) {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.box-shadow(@shadow){
+    -moz-box-shadow: @shadow;
+    -webkit-box-shadow: @shadow;
+    box-shadow: @shadow;
+}
+
+.transition (@type: all, @time: .2s, @effect: ease) {
+    -moz-transition: @type @time @effect;
+    -webkit-transition: @type @time @effect;
+    -ms-transition: @type @time @effect;
+    transition: @type @time @effect;
+}
+
+/* Uso */
+.some-class{
+    .border-radius(2px);
+    .box-shadow(inset 0 2px 3px rgba(0,0,0,0.3));
+    .transition;
+}
+
+aside{
+    width: 4px;
+    height: 0;
+    float: left;
+    position: relative;
+    top: 6px;
+    border: 5px solid transparent;
+    border-left-width: 10px;
+    border-left-color: #868686;
+    -webkit-filter: drop-shadow(0em 0em 0.1em rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0em 0em 0.1em rgba(0, 0, 0, 0.4));
+
+    color: rgba(255,255,255,0);
+
+}
+                                </textarea>
+
+<!-- <textarea name="code2" id='code2' class='cm'>
+.class {
+    filter: ~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image.png')";
+}
+
+/* Gera o seguinte CSS */
+.class {
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image.png');
+}
+</textarea> -->
+
+                </article>
+            </div>
+
+            <footer>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            </footer>
+
+        </div>
+
+
+        <!-- JS  -->
+        <script src='public/js/jquery-1.7.1.min.js'></script>
+        <script src='public/js/global.js'></script>
+        <script src="public/codeminor/lib/codemirror.js"></script>
+        <script src="public/codeminor/mode/less/less.js"></script>
+
+        <script>
+
+            for(i = 1; i < $('.cm').length + 1; i++){
+                var editor = CodeMirror.fromTextArea(document.getElementById('code' + i), {
+                    lineNumbers: true,
+                    theme: 'blackboard',
+                    mode: 'less'
+                });
+            }
+
+
+
+        </script>
+
+        <!-- Google Web Fonts -->
+        <script type="text/javascript">
+            WebFontConfig = {
+            google: { families: [ 'Ubuntu+Mono:400,700:latin', 'Inconsolata::latin', 'Varela+Round::latin' ] }
+            };
+
+            (function() {
+                var wf = document.createElement('script');
+                wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+            })(); 
+        </script>
+
+        <script type="text/javascript">
+
+            $('.cm-number').each(function(){
+
+                var pattern    = [ 'px', 'em', 'rem', 'pt'],
+                    newSpartan = $(this).html();
+
+                for (var i = 0; i < pattern.length; i++) {
+                    newSpartan = newSpartan.replace(pattern[i], '<strong>' + pattern[i] + '</strong>');
+                };
+
+                $(this).html(newSpartan);
+
+            });
+
+        </script>
+
+    </body>
+</html>

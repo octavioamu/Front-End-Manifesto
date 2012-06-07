@@ -1,0 +1,559 @@
+@charset 'UTF-8';
+
+/*
+*     Author:       Gabriel Mateu's
+*     Github:       git.io/gabrielmateus
+*     Project:      Front End Manisfesto
+*     Date:         05/06/2012
+*/
+
+/* ==========>> Summary
+    =Imports
+    =Global Variables
+    =Global Mixins
+    =Global
+    =Structure
+    =Content
+        =Header
+        =Aside
+        =Sections
+        =Scroll Bar Internal
+        =Code Content
+            =Tabs
+        =Footer
+    =Forms
+    =Others
+        =CodeMirror
+============================================================= */
+
+/* ==========>> =Imports
+============================================================= */
+@import 'reset.css';
+@import 'fonts.css';
+@import '../codeminor/lib/codemirror.css';
+@import '../codeminor/theme/blackboard.css';
+
+/* ==========>> =Global Variables
+============================================================= */
+@font-size: 13;
+@em: @font-size * 1em;
+@arial: 'Arial', Helvetica, Sans-Serif;
+
+//Colors
+@default: #8f908a;
+@greyLight: #979797;
+@greyDark: #272822;
+
+// Calculations
+@topCalc: 24px;
+@bottomCalc: 18px;
+@asideWidth: 14%;
+
+/* ==========>> =Global Mixins
+============================================================= */
+
+.cf(){
+    zoom: 1;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.ir() {
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+}
+
+.fl{
+    float: left;
+    width: 100%;
+}
+
+.box-shadow(@value) {
+    -moz-box-shadow: @value;
+    -webkit-box-shadow: @value;
+    box-shadow: @value;
+}
+
+.border-radius(@rad: 4px) {
+    -moz-border-radius: @rad;
+    -webkit-border-radius: @rad;
+    border-radius: @rad;
+}
+
+.opacity(@alpha: 70) {
+    filter: alpha(opacity=@alpha);
+    -moz-opacity: @alpha/100;
+    opacity: @alpha/100;
+}
+
+.transition(@d: 0.2s, @t: all) {
+    -webkit-transition: @t @d ease-in;
+    -moz-transition: @t @d ease-in;
+    -o-transition: @t @d ease-in;
+    transition: @t @d ease-in;
+}
+
+.gradient(@c1, @c2) {
+    background-color: @c1;
+    background-image: -webkit-linear-gradient(top, @c1, @c2);
+    background-image: -moz-linear-gradient(top, @c1, @c2);
+    background-image: -o-linear-gradient(top, @c1, @c2);
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorStr="@c1~", EndColorStr="@c2~", GradientType=0)";
+    background: linear-gradient(top, @c1 0%,@c2 100%);
+}
+
+/* ==========>> =Global
+============================================================= */
+
+.hide{
+    display: none;
+}
+
+.triangle{
+    width: 4px;
+    height: 0;
+    float: left;
+    position: relative;
+    top: 6px;
+    border: 5px solid transparent;
+    border-left-width: 10px;
+    border-left-color: #868686;
+    -webkit-filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.55));
+    filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.55));
+}
+
+.active .triangle{
+    width: 0px;
+    margin-right: 9px;
+    border: 5px solid transparent;
+    border-top-width: 10px;
+    border-top-color: #868686;
+}
+
+.whiteShadow{
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+}
+
+/* ==========>> =Structure
+============================================================= */
+html,
+body {
+    height: 100%;
+    font: 12px/1.5em @arial;
+    color: @default;
+    -webkit-font-smoothing: subpixel-antialiased !important;
+    overflow-x: hidden;
+    //font-family: 'Ubuntu Mono', sans-serif;
+    //font-family: 'Inconsolata', sans-serif;
+    //font-family: 'Varela Round', sans-serif;
+}
+
+.container{
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+a{
+    cursor: default;    
+}
+/* ==========>> =Content
+============================================================= */
+
+
+/* ===== {{ =Header }} ===== */
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #171814;
+    border-bottom: 1px solid #929292;
+    .gradient(#f6f8fc, #dce2f3);
+
+    nav{
+        .fl();
+        margin-left: 2px;
+
+        li{
+            float: left;
+        }
+
+        a{
+            display: block;
+            padding: 1px 8px;
+            border: 1px solid rgba(0,0,0,0);
+
+            &:hover{
+                border: 1px solid rgba(0,0,0,0.2);
+                .border-radius(2px);
+                box-shadow: 1px 1px 1px rgba(255,255,255,1) inset, -1px 0px 1px rgba(255,255,255,1) inset;
+            }
+
+        }
+
+        .current{
+            border: 1px solid rgba(0,0,0,0.6);
+            .border-radius(2px);
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2) inset;
+        }
+    }
+}
+
+/* ===== {{ =Aside }} ===== */
+
+aside{
+    position: fixed;
+    top: @topCalc;
+    left: 0;
+    bottom: @bottomCalc;
+    width: @asideWidth;
+    height: inherit;
+    padding: 6px 0;
+    background: #e6e6e6;
+
+    section{
+
+        h2{
+            padding: 2px 10px;
+            color: @greyLight;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 1px #fff;
+        }
+
+        a{
+            display: block;
+            width: inherit;
+            text-transform: lowercase;
+            padding: 2px 10px;
+        }
+
+    }
+}
+
+/* ===== {{ =Sections }} ===== */
+
+section.open-files{
+
+    span{
+        margin-right: 10px;
+        font-size: 15px;
+        color: #868686;
+        font-weight: 700;
+        text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+    }
+
+    .active{
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+        .gradient(#b2b2b2, #909090);
+        .box-shadow( 1px 1px 1px #a8a8a8 inset);
+    }
+}
+
+section.folders-list{
+
+    a{
+        &:hover .triangle{
+           border-left-color: #a5a5a5;
+        }
+
+        &:hover.active span{
+            border-left-color: transparent;
+            border-top-color: #a5a5a5;
+        }
+
+    }
+
+    ul.files{
+
+        a{
+            width: inherit;
+            padding-left: 49px;
+        }
+
+        .active{
+            color: #fff;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+            .gradient(#b2b2b2, #909090);
+            .box-shadow( 1px 1px 1px #a8a8a8 inset);
+        }
+
+    }
+}
+
+
+/* ===== {{ =Scroll Bar Internal }} ===== */
+
+.container > aside,
+#code-content{
+    overflow: auto;
+
+    &::-webkit-scrollbar{
+        //width: 20px;
+        border-color: #000;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track{
+        background-image: -webkit-linear-gradient(left, #212121, #303030);
+        border-left: 1px solid #000;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb{
+        position: relative;
+        background-image: -webkit-linear-gradient(left, #4a4a4a, #404040);
+        box-shadow: inset 1px 0 0 #585858;
+        border-radius: 7px;
+        border-style: solid;
+        border-width: 0 4px;
+        border-color: #282828 #282828 #282828 #212121;
+    }
+
+    &::-webkit-scrollbar-thumb:window-inactive{
+        background: #4a4a4a;
+    }
+}
+
+
+/* ===== {{ =Code Content }} ===== */
+
+#code-content{
+    position: fixed;
+    top: @topCalc;
+    left: @asideWidth;
+    right: 0;
+    bottom: @bottomCalc;
+    width: 86%;
+    padding-top: 6px;
+    background: @greyDark;
+
+    article{
+        position: relative;
+        top: 28px;
+    }
+}
+
+/* ===== {{{ =Tabs }}} ===== */
+
+.tabs{
+    .cf;
+    width: 100%;
+    position: fixed;
+    top: @topCalc;
+    z-index: 9999;
+    padding: 6px 0 0 8px;
+    text-transform: lowercase;
+    .gradient(#161613, #151613);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+
+    li{
+        float: left;
+        width: 130px;
+        margin: 0 1px;
+        padding: 6px 20px;
+        color: @default;
+        .border-radius(10px 10px 0 0);
+        .box-shadow(0px 1px 1px rgba(255,255,255,0.2) inset);
+        .gradient(#4d4d4b, #373734);
+
+        span{
+            float: right;
+            color: #90908e;
+            font-weight: 700;
+            text-shadow: 1px 1px 1px #000;
+            cursor: default;
+
+            &:hover{
+                color: #c1c1c1;
+            }
+        }
+
+        a{
+            .fl();
+            color: @default;
+            cursor: default;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.4);            
+        }
+    }
+
+    .current{
+        position: relative;
+        top: 1px;
+        height: 19px;
+        .gradient(#353530, @greyDark);
+
+        a{
+            .whiteShadow();
+        }
+    }
+}
+
+.tabs-content{
+    padding: 0 14px;
+
+    ol{
+        float: left;
+        margin: 0 12px;
+    }
+}
+
+
+/* ===== {{ =Footer }} ===== */
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #565656;
+    border-top: 1px solid #171814;
+    box-shadow: 0px 0px 2px #fff inset;
+}
+
+
+/* ==========>> =Forms
+============================================================= */
+
+/* Formee - http://www.formee.org */
+
+.form-overlay form {
+    width: 100%;
+    float: left;
+}
+.form-overlay fieldset {
+    height: 100%;
+    padding: 1.2em 0;
+    margin: 0 0 4em;
+    position: relative;
+    border: 1px solid #d4d4d4;
+}
+.form-overlay legend {
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 0.5% 0.5% 0.8%;
+}
+.form-overlay form > div {
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 0.8% 0.5% 1%;
+    float: left;
+    position: relative;
+}
+.ie7 .form-overlay form > div {
+    margin-left: .8%;
+    margin-right: .8%;
+    padding: 0.8% 0.25% 1%;
+}
+.form-overlay .grid-1 { width: 5.333% }
+.form-overlay .grid-2 { width: 13.666% }
+.form-overlay .grid-3 { width: 22% }
+.form-overlay .grid-4 { width: 30.333% }
+.form-overlay .grid-5 { width: 38.666% }
+.form-overlay .grid-6 { width: 47% }
+.form-overlay .grid-7 { width: 55.333% }
+.form-overlay .grid-8 { width: 63.666% }
+.form-overlay .grid-9 { width: 72% }
+.form-overlay .grid-10 { width: 80.333% }
+.form-overlay .grid-11 { width: 88.666% }
+.form-overlay .grid-12 { width: 97% }
+.form-overlay label {
+    height: auto;
+    margin: 0.2em 0 0.5em;
+    display: block;
+}
+.form-overlay input[type="text"],
+.form-overlay input[type="password"],
+.form-overlay input[type="file"],
+.form-overlay textarea,
+.form-overlay select {
+    width: 100%;
+    padding: 5px 10px;
+    vertical-align: middle;
+    line-height: 1.1em;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.ie7 .form-overlay input[type="text"],
+.ie7 .form-overlay input[type="password"],
+.ie7 .form-overlay input[type="file"],
+.ie7 .form-overlay textarea,
+.ie7 .form-overlay select { width: 99% }
+.form-overlay textarea {
+    height: 10em;
+    resize: vertical;
+}
+.form-overlay select {
+    padding: 9px;
+    height: 2.7em;
+}
+.form-overlay-req {
+    position: relative;
+    top: 3px;
+}
+.form-overlay input[type="submit"],
+.form-overlay input[type="button"],
+.form-overlay input[type="reset"] {
+    padding: 8px 15px 9px;
+    float: right;
+    cursor: default;
+    border: 1px solid #D4D4D4;
+    text-align: center;
+}
+.form-overlay input[type="checkbox"],
+.form-overlay input[type="radio"] {
+    margin-top: 2px;
+    margin-right: 5px;
+    float: left;
+}
+
+
+/* ==========>> =Others
+============================================================= */
+
+/* ===== {{ =CodeMirror }} ===== */
+
+.CodeMirror {
+    font-size: 1.3em;
+    line-height: 1.2em;
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
+.CodeMirror-gutter {
+    float: left;
+    padding-right: 20px;
+    height: 100%;
+    z-index: 10;
+    border-right: 1px dashed @default;
+}
+
+.CodeMirror-gutter pre{
+    color: @default;
+}
+
+.cm-s-tubster .CodeMirror-cursor{
+    float: left;
+    color: #75715e;
+}
+
+.CodeMirror-lines {
+  margin-left: 20px;
+}
+
+
+

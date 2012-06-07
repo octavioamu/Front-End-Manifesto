@@ -1,0 +1,37 @@
+/* Port of TextMate's Blackboard theme */
+
+.cm-s-blackboard { background: none; color: #F8F8F8; }
+.cm-s-blackboard .CodeMirror-selected { background: #253B76 !important; }
+.cm-s-blackboard .CodeMirror-gutter { background: none; }
+.cm-s-blackboard .CodeMirror-gutter-text { color: #888; }
+.cm-s-blackboard .CodeMirror-cursor {
+	float: left;
+	border-left: 1px solid #fff !important;
+}
+
+.cm-s-blackboard .cm-keyword { color: #FBDE2D; }
+.cm-s-blackboard .cm-atom { color: #D8FA3C; }
+.cm-s-blackboard .cm-number { color: #9981ff; }
+.cm-s-blackboard .cm-def { color: #8DA6CE; }
+.cm-s-blackboard pre, .cm-s-blackboard .cm-variable { color: #66d9ef; }
+.cm-s-blackboard .cm-operator { color: #FBDE2D;}
+.cm-s-blackboard .cm-comment { color: #AEAEAE; }
+.cm-s-blackboard .cm-string { color: #61CE3C; }
+.cm-s-blackboard .cm-string-2 { color: #61CE3C; }
+.cm-s-blackboard .cm-meta { color: #fff; }
+.cm-s-blackboard .cm-error { background: #9D1E15; color: #F8F8F8; }
+.cm-s-blackboard .cm-builtin { color: #8DA6CE; }
+.cm-s-blackboard .cm-tag { color: #a6e22e; }
+.cm-s-blackboard .cm-attribute { color: #8DA6CE; }
+.cm-s-blackboard .cm-header { color: #FF6400; }
+.cm-s-blackboard .cm-hr { color: #AEAEAE; }
+.cm-s-blackboard .cm-link { color: #8DA6CE; }
+
+.cm-s-blackboard .cm-number strong{
+	font-weight: 400;
+	color: #f92672;
+}
+
+.cm-s-blackboard .cm-number i{
+	color: #fff;
+}

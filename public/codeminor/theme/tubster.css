@@ -1,0 +1,48 @@
+/* Loosely based on the Midtubster Textmate theme */
+
+.cm-s-tubster span.CodeMirror-selected {
+	background: #535c72 !important
+}
+.cm-s-tubster .CodeMirror-cursor {
+	border-left: 1px solid white !important
+}
+.cm-s-tubster pre{
+	color: #fff
+}
+.cm-s-tubster span.cm-atom,
+.cm-s-tubster span.cm-tag {
+	color: #a6e22e !important
+}
+.cm-s-tubster span.cm-number,
+.cm-s-tubster span.cm-attribute {
+	color: #62b233 !important
+}
+.cm-s-tubster span.cm-keyword {
+	color: #fff !important
+}
+.cm-s-tubster span.cm-string {
+	color: #CC6633 !important
+}
+.cm-s-tubster span.cm-meta {
+	color: #fff !important
+}
+.cm-s-tubster span.cm-variable {
+	color: #5cd9ef !important
+}
+.cm-s-tubster span.cm-variable-2 {
+	color: #fff !important
+}
+.cm-s-tubster span.cm-variable-3,
+.cm-s-tubster span.cm-def {
+	color: white !important
+}
+.cm-s-tubster span.cm-error {
+	color: #9d1e15 !important
+}
+.cm-s-tubster span.cm-bracket {
+	color: #fff !important
+}
+.cm-s-tubster span.cm-builtin,
+.cm-s-tubster span.cm-special {
+	color: #ff9e59 !important
+}
